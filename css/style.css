@@ -1,0 +1,516 @@
+/* Web Fonts -------------------- */
+
+/*The reason we need to have different file formats located at fonts folder is because certainly browsers only support certain font formats. So @font-face is what allows us to link to each of these font formats in one rule. The they activated when needed by a specific browser or platform.*/
+
+
+@font-face {      /*Please note: @font-face is our web fonts. Web fonts eliminate the need to depend on the limited number of fonts installed on a user's computer. Web fonts are special types of fonts that are optimized for screen display, and they’re linked to our web pages from an external source, then activated when needed. So @font-face is what allows us to link to each of the file in fonts formats in one rule. Then they're activated when needed by a specific browser or platform.
+*/
+  
+  
+  font-family: 'Abolition Regular'; //*We need to name our font with a font-family property. You can write the font family name however you want because its for internal use in this style sheet only. So we named our font as Abolition Regular.*/
+  
+  
+  /*So next we'll need to specify and link to the locations of the font files. Next we'll need to specify and link to the locations of the font files. so back in the Font folder of our project files, we should see another file named webfont-snippet.css. When you open that file it contains a code snippet that links to all the font formats in our fonts directory. So go ahead and copy this snippet and paste it right beneat the font family property.*/
+  
+  
+  /*So here we're specifiying alternate font-file formats for broader browser support by using the source property and the URL value that links to the font file location.*/
+  
+  src: url('../fonts/abolition-regular-webfont.eot'); /*The font format we're using here is "EOT" Embedded OpenType format. This is a proprietary format for internet Explorer, and this particular declaration is for IE 9's compatibility mode. 
+  */
+  src: url('../fonts/abolition-regular-webfont.eot?#iefix') format('embedded-opentype'), /*The URL below is a bit of a trick that makes "EOT?#IEFIX" the eot font format display in order version of IE.*/
+       url('../fonts/abolition-regular-webfont.woff') format('woff'), /*Here we have the "WOFF" or Web Open Font Format, and this is a newer font format developed by Mozilla and it's supported by al modern browsers. The advantage of using the woff format, besides having the strongest browser support, is that it loads super fast because the data in the font is compressed. So, sites using woff format will actually use less bandwidth.*/
+    
+       url('../fonts/abolition-regular-webfont.ttf') format('truetype'); /*Finally, the "TTF" or TrueType Format, is being used here for Safari, Android and iOS display.*/
+
+/*Summary: Even though the browser will only load and use the font format it supports, we still need to consider performance, because embedding too many fonts witb @font-face rules can effect our pages load time. So we need to keep these to a minimum and only embed the fonts we need. So, we're going to use this web font in our h1 and h2 headings.*/
+  
+}
+
+
+/* Base Styles -------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #878787;
+  margin: 0;
+  font: 1em/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*Lets create a new rule in our style sheet that targets both the h1 and h2 elements.*/
+
+h1, 
+h2 {
+
+  font-family: 'Abolition Regular', Helvetica, Arial, sans-serif; /*Inside lets declared a font-family property. And now we create a font stack by listing the desired abolition regular web font. First, so inside a set pf quotes, I'm going to type Abolition Regular, followed by a comma, then I'll simply copy the Helvetica font stack in our body rule and paste it in our heading font stack, right after Abolition Regular.*/
+}
+
+
+h1 {  
+  font-size: 5.625rem; /* 90px/16px  */
+/*  color: rgba(255, 255, 255, 1); If I remove this color the title and heading are now inheriting the gray color value declared in the body rule*/
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 1.3;
+  text-shadow: 0 1px 1px rgba(0,0,0,.8);
+  margin-top: 12px 0 0; 
+  
+}
+
+/* This will make you text as 3D
+h1 {
+  text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+*/
+
+h2 {
+  font-size: 3.3125em; /* 53px/16px  */
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 0 0 .5em; /* 0 0 26px */
+}
+
+h3 {
+  font-size: 1.25em; /* 20px/16px  */
+  color: #48525c;
+  line-height: 1.2;
+  margin-bottom: 1.7em; /* 34px */
+}
+
+img {
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-radius: 10%; /*This will give our image a rounded corners */
+}
+
+ul,
+ol {
+ 
+  margin: 30px 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Pseudo-classes ------------------ */
+
+a:link {
+  color: rgb(255, 169, 73);
+  text-decoration: none;
+}
+
+a:visited {
+  color: lightblue;
+}
+
+a:hover {
+  color: rgba(255, 169, 73, .4);
+}
+
+a:active {
+  color: lightcoral;
+}
+
+/* Main Styles --------------------- */
+
+.main-header {
+  padding-top: 170px;
+  height: 850px;
+  
+  
+  background: linear-gradient(#ffA949, transparent 90%), 
+              
+              linear-gradient(0deg, #fff, transparent ), 
+              #ffa949 url('../img/mountains.jpg') no-repeat center; 
+  
+  
+  /
+  
+  background-size: cover;
+  box-sizing: border-box;
+  color: white; 
+  
+  /*background-image: linear-gradient(#FFA949 0%, firebrick 50%, dodgerblue 100%);*/ 
+  
+  
+/*  background-image:linear-gradient(to top, #ffa949, firebrick); This will reverse the color of the linear-gradient above.*/
+  
+/*  background-image:linear-gradient(to left, #ffa949, firebrick); This will change the direction of the gradient starts on the left side and ends on the right side of the header.*/
+  
+  
+  
+/*  background-image:linear-gradient(0deg, #ffa949, firebrick); Notice how this creates a gradient starting from the bottom to the top. It's the same as the top value we used earlier. */
+  
+  
+  
+  
+/*  background-image:linear-gradient(45deg, #ffa949, firebrick); Notice how the gradient moves 45 degrees clockwise. So now it starts at the bottom left corner and ends at the top right corner.*/
+
+
+
+}
+
+
+  
+
+.title {
+/*  color: white; If I remove this color the title and heading are now inheriting the gray color value declared in the body rule*/
+  font-size: 1.625rem; /* 26px/16px by converting to rem*/
+  letter-spacing: .065em; /*This is the value of spacing between letters*/
+  font-weight: 200; /*Let's also lighten the font weight by setting a font weight property and a value of 200 */
+  border-bottom: 2px solid; /*let's give our title a bottom border that sort of separates it from the main heading. Let's set the border width to 2px and the border style to solid.*/
+  padding-bottom: 10px; 
+  
+}
+
+.intro {
+  font-size: 1.25em; /* 20px/16px by converting to em */
+  line-height: 1.6;  
+/*  color:black; Instead of doing this declaration to define a color back to black we can also use the initial*/
+  color: initial; /*The value initial displays the value that designated as the property's initial value. So the browser ignores the inheritance from the body element and the intro's text color goes back to the initial value of black.*/
+}
+
+.primary-content,
+.main-header,
+.main-footer {
+  text-align: center;
+}
+
+.primary-content {
+	padding-top: 25px;
+  padding-bottom: 95px;
+}
+
+.secondary-content {
+	padding-top: 80px;
+	padding-bottom: 70px;
+  border-bottom: 2px solid #dfe2e6;
+}
+
+.callout {
+  font-size: 1.25em;
+  border-bottom: 3px solid;
+  padding: 0 9px 3px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.main-footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-bottom: 10px solid #ffa949;
+}
+
+.t-border {
+  border-top: 2px solid #dfe2e6;
+}
+
+/* Layout Styles ------------------ */
+
+.primary-content, 
+.secondary-content {
+  width: 75%;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin: auto;
+  max-width: 960px;
+}
+
+.wildlife {
+  color: white;
+  text-align: left;
+  padding: 18% 24%;
+  border-top: 10px solid #ffa949;
+  margin: 105px 0 60px;
+  background: #434a52 url('../img/bear.jpg') no-repeat center;
+  background-size: cover;
+  box-shadow: inset 20px 20px 50px 10px rgba(0,0,0, 1); 
+  
+  
+  
+  
+/*
+  border-top-left-radius: 50px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 10px
+  
+*/
+  
+  /*Shorthand version of border-radius property*/
+  
+/*  border-radius: 50px 10px; 
+  border-radius: 10px; */
+  
+  
+  /*If we want to set an even value border-radius for each side of our div, we'll simply need to define one value. Example: */
+
+/*
+border-radius: 100% 25px; if we change the border top left and border bottom right values to 100%, notice how the rounded corner takes up 100% of the left and bottom right corners of our div. So as we can see border-radius with percentages can create some interesting shapes. 
+*/
+  
+  
+/* border-radius: 50%; Because of percentage value this will make our div shapes like a oval
+  
+  By adding the width and height this will create a circle shape
+  
+  width: 500px; 
+  height:500px; 
+  
+  
+  */
+
+  
+}
+
+
+.arrow {
+  width: 50px;
+  margin-top: 150px; /*Finally, let's give the arrow image a top margin that gives it plenty of separation from the main heading */
+}
+
+/* Floated Columns ------------------ */
+
+.resorts,
+.tips {
+  width: 46.5%;
+}
+
+.tips {
+  float: left;
+}
+
+.resorts {
+  float: right;
+}
+
+/* Float Clearfix ------------------ */
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Media Queries-------------------- */
+
+
+/*A media query is simply a style block containing one or various conditions. And, if those conditions are true, the media query takes effect. If they false, the browser or device ignores them.*/
+
+/*@media  (max-width: 960px) {   The @media rule is what specifies the media type we want to target. There are few recognized media types we can use so that we're able to create CSS and serve it specifically to any of those media types. For example, the All media type targets all devices. There's also a media type for Print, Green, even one for Speech. So we want our media queries to affect all devices and computer screens, so, we'll want to go with All media type. Please note: All is the default media type for media queries. So we can actually omit it from our media statement if we want to. So remember, if you don't define a media type, the All type will be implied. We no longer needed it. You can coment this out for reference only.*/
+
+/*So now, we'll need to write an expression inside the parenthesis that will check for those true or false conditions I mentioned. First we need to define the media feature we are testing for. Some of the media features we can use are width, height. We can also check for things like max-width, max-height, also a device's orientation and a few other features.*/ 
+
+/*So we are going to use the max-width media feature to check for the max-width of the browser's viewport. Then, we're going to follow that with a colon and define a pixel based value of 960 pixels. We can also make this a percentage value, an em's value or any linked unit. Keep in mind, that we don't need to include a semi colon after the value. inside parentheses. Otherwise, the entire media query is ignored. So make sure to keep those semi-colons out of the media feature expressions.*/
+
+/*So this expression will query the max-width of the display area, which in our case is the browser's viewport.  */
+
+/*So with this media query in place, we can create subtle or drastic changes in the layout or appearance of our websites whenever the browsers viewport is at or below 960 px.*/
+
+
+/*
+body {
+
+  background: royalblue; Let's target the body of the page. Using the body type selector that inside the body rule. We no longer needed it. You can coment this out for reference only.*/
+}
+*/
+/*
+
+p {
+
+  color: white; Let's target all paragraphs on the page with P selector. Let's remove the P element and move it to the 3rd query.
+*/
+  
+*/
+  /*Summary: We can see how those colors are applied to the body and paragraphs whenever the browser width is resized. So right when the view port hits that 960px width, the colors change and they remain that way as the browser gets narrower. But once we're at anything wider than 961 pixels, they change back to their original colors.*/
+  
+}
+
+}
+
+
+/*
+@media (max-width: 480px) { Let's create a new media query. Once again we're going to use the max-width media feature, but this time we're going to set the value to 480px 
+
+body {  let's once again target body element.
+  background: darkred;
+}
+
+We no longer needed it. You can coment this out for reference only.*/
+
+/*Summary: Notice how the background color still turns blue and the paragraph colors change to white at 960px.But once the view port is equal to or below 480px, the background color turns darkred.*/
+
+
+/*Notice how the paragraph's font colors still remain white even though we didn't specify it in the new media query. The color value still apply because the conditions we've set in the top media query are still true.*/
+
+
+/*The view port width is still less than 960px. Unless we override it with a new property, like we did above with background, the text color will remain white. But if we want to define certain styles only at a certain range of viewport sizes, we'll what's great about media queries is that 'we're able to add or combine expressions if we need to get more specific about a device or a viewport range. */
+
+}
+
+
+
+/*Let's add one more media query in our style sheet by typing @media and this time we are going to use the min-width media feature and the value is going to be 481px*/
+
+/*@media (min-width: 481px) and (max-width: 700px) { In this media query the "and" operator is combining these two expressions between the parentheses. So when the device or view port is between the range of 481px and  700px, it's going to display the styles we're about to write. We no longer needed it. You can coment this out for reference only.*/
+
+/*So inside of our media query rule, let's target the body element*/
+
+/*body {
+
+  background:seagreen;
+}
+
+
+p {
+
+ color: white; We no longer needed it. You can coment this out for reference only.*/ /*Let's target all paragraphs on the page with P selector. Let's paste it here.*/
+  
+  /*So now when we resize our browser, notice how the green background and white text color are only applied between the max width of 700px and minimum width of 480px. So when the view port is between 481px and 700px.*/
+  
+}
+
+
+/* Media Queries-------------------- */
+
+
+/*Note: The last thing we need to do in our Lake Tahoe website is add a couple of media query breakpoints to adjust our layout for smaller devices and viewport sizes. Currently parts of our layout are breaking at certain points. So we have to delete or comment out the first media queries we created above */
+
+
+/*We start seeing a lot of issues in our layout. When you resize the browser the contents starts to get narrow and cramped. And it gets to a point where the content is barely readable. So as you can see in some areas the text in columns are too narrow, or the line height and font sizes are too big, and we're seeing that appear in the header area. So we can adjust this with media queries.*/
+
+/*First thing we want to do is create a new media query that checks when the device or browser viewport is 1024px or lower.*/
+
+@media (max-width: 1024px) {  /*This time we used max-width media feature and we set the value to 1024 px*/
+
+
+  .primary-content,       /*Now let's target the primary and secondary content divs and them a little wider at 1024px.Because currently the 75% width seems a little too narrow.*/
+  .secondary-content {
+  
+   width:90%;
+
+}
+
+
+/*so if you scroll down to our wildlife container and resize the browser, notice how there appears to be a little too much padding applied to the div. Here we are going to adjust the padding for our wildlife class div.*/
+
+.wildlife {   /*Let's target the class wildlife */
+  
+  padding: 10% 12%; /*Apply padding property. 10% for top and bottom and 12% for left and right padding.*/
+  
+  margin: 50px 0 20px; /*Let's adjust the margin property. 50px for top, 0px for left and right, and 20px for bottom margin.*/
+  
+  
+  /*Summary: Notice when you resize the browser, down to about 768px or lower, you can see that it looks a lot better. The content and the div no longer looks too narrow or cramped and thew new margin values closed up some of that extra space around the div.*/
+
+  
+}
+
+
+/*Summary: Once you resize the viewport at 1024px or narrower, the primary secondary content divs expand to 90% of the browser width.*/
+
+}
+
+/*So now we want to expand the content even further when the viewport is at about 768px. And we'll want to adjust other areas, like the main header's text and it's height, and we'll also want to fix this issue down here in our column. width. Now, let's create one more media query.*/
+
+
+@media (max-width:768px) {   /*Here once again we are going to use the max width media feature. But this time, we're going to aply these new styles when the device or browser's viewport is at 768 pixels or narrower.*/
+
+
+/*So what we'll do is copy this primary secondary content rule from our first media query and I'm just going to paste it down here in our new media query.*/
+
+
+  .primary-content,
+  .secondary-content {
+    width:100%; /*We just changed the width value from 90% to 100%*/
+    padding: 20px; /*Let's also add a padding property and let's give the value of 20px*/
+    border-top: none; /*We also want to remove this top borders in the primary, secondary content divs by adding a border property and set the value to none.I made some changes here. I added back the top border line because I kinda like that. I added a -top instead of just border.Here you will a grey border on top of the footer.*/
+  
+  /*Summary: So by adding a border-top: none gives it a little separation between the content and the footer.*/
+}
+
+/*Summary: So now when we resize the browser down to 768px or lower, the main content areas are no longer too narrow for optimal readability. And now those top borders are now gone.*/
+
+/*Next let's adjust our header height, because currently the 850 pixel height seems a little too tall for maller screens.*/
+
+
+/*Let's target our main header with the main header class.*/
+
+
+  .main-header {
+    max-height: 380px;
+    padding: 50px 25px 0;  /*Let's also adjust the padding, because currently the top padding of 170px is a little too much. Top padding is 50px the left and right paddings is 25px and the bottom padding is 0*/
+
+}
+
+
+/*Let's also target the title element with the title class.*/
+
+  .title {
+    font-size: 1.3 rem; /*We're going to take the font size down to 1.3 rem*/
+    border: none;
+
+}
+
+/*Next, let's target the h1 heading with the h1 selector and let's take the font size down to 5rem*/
+
+  h1 {
+
+  font-size: 5rem;
+  line-height: 1.1; /*let's also change the line height. Let's make it smaller by changing it to 1.1*/
+}
+
+/*And now that the header will be much shorter, let's also hide this arrow image in our main header. To do that we need to target the class arrow*/
+
+
+  .arrow {
+
+  display: none; /* To hide the arrow we need to set the display value to none. Please note that the arrow will only disappear if you resize the screen to smaller.*/
+}
+
+
+/*The next thing we need to do is adjust this intro paragraph's text size.back to the root font size of 16px. Because currently, the text seems a little too big for smaller screens. So to adjust our text size we are going back to our second query and target the intro class.*/
+  .intro {
+
+    font-size: 1rem; /* To set the font size back to that root font size of 16px, remember, we can use the rem unit so let's set the value back to 1rem.*/
+}
+
+
+
+/*Next we need to make some adjustment to our column layout. Notice how their a little too narrow and cramped in this narrow viewport. So let's go back to our second media query and we're going to target the resorts and tips columns.*/
+
+  .resorts,
+  .tips {
+
+    float: none;  /*Instead of floating the two columns in the narrow viewports, or smaller screens, we're going to remove the floats by adding a float property and set the value to none.*/
+    width:100%;
+}
+
+
+/*Let's also reduce some of the top and bottom padding here in our footer. So let's go back to the second media query and target the main footer class.*/
+
+
+  .main-footer {
+  
+  padding: 20px 0; /*Top and bottom paddig is 20px, and the left and right padding to 0px*/
+  
+  
+  /*So now the footer doesn't seem too tall and out of place on the smaller screens and viewport sizes.*/
+}
+
+}
